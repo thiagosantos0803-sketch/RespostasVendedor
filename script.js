@@ -22,8 +22,7 @@ function safeGetStorage(key) {
         }
 
 
-const APPS_SCRIPT_URL = 'COLE_AQUI_A_URL_DO_APPS_SCRIPT';
-
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCxxM8xuQZNMJHjVje25flc6-WGhh9Hsak147FUWz4XTGI8e7ydTqqI0X52fAD1P-xkA/exec';
 // ──────────────────────────────────────────────────────────────
 //  CATALOG LOCK
 // ──────────────────────────────────────────────────────────────
