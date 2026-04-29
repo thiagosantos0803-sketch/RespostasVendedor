@@ -117,15 +117,24 @@ function submitForm() {
   console.log('Feedback KG Sorensen:', data);
 
   if (APPS_SCRIPT_URL && APPS_SCRIPT_URL !== 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') {
+        const formData = new FormData()
+    formData.append('Data', new Date().toISOString())
+    formData.append('Dificuldade', data.dificuldade)
+    formData.append('Ajuda', data.ajuda)
+    formData.append('Frequencia', data.frequencia)
+    formData.append('Observacao', data.observacao)
+    formData.append('Quer_Contato', data.quer_contato)
+    formData.append('Nome', data.nome)
+    formData.append('Telefone', data.telefone)
+    formData.append('Dental', data.dental)
+
     fetch(APPS_SCRIPT_URL, {
-      method:  'POST',
-      mode:    'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(data)
-    })
-    .then(() => console.log('Dados enviados ao Google Sheets'))
-    .catch(err => console.warn('Erro ao enviar para Sheets:', err));
-  } else {
+      method: 'POST',
+      body: formData
+    )
+      .then(() => console.log('Dados enviados ao Google Sheets'))
+      .catch(err => console.warn('Erro ao enviar para Sheets:', err));
+    } else {
     console.warn('APPS_SCRIPT_URL nao configurada. Configure em script.js');
   }
 
